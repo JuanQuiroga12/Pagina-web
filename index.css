@@ -37,29 +37,42 @@
   }
   
   .logo img {
-    width: 141px;
-    height: 141px;
+    width: 2000px;
+    height: 2000px;
     border-radius: 34px;
   }
   
   .hero {
-    height: 727px;
+    height: 300px; /* Ajusta la altura según tus necesidades */
+    width: 100%; /* Ajusta el ancho según tus necesidades */
+    max-width: 1200px; /* Establece un ancho máximo si es necesario */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
     display: flex;
     justify-content: center;
     align-items: center;
     background-size: cover;
-    background-position: center;
-  }
+    background-position: cover;
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    position: relative; /* Necesario para que los elementos hijos con position absolute se posicionen correctamente */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del contenedor */
+}
   
   .hero-title {
     font-size: 48px;
     color: white;
     text-align: center;
   }
-  
   .highlight {
     font-size: 96px;
     color: #FAFF00;
+  }
+  
+  .btn-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
   }
   
   .btn-block {
@@ -71,63 +84,4 @@
     border-radius: 14px;
     text-align: center;
     cursor: pointer;
-    margin-top: 20px;
   }
-  
-  .section-info {
-    background: linear-gradient(180deg, #ECD4FF 0%, #CB85FF 100%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 27px;
-  }
-  
-  .info-text {
-    width: 376px;
-    font-size: 34px;
-    color: black;
-  }
-  
-  .info-img {
-    width: 361px;
-    height: 419px;
-    border-radius: 49px;
-  }
-  
-  .section-plans {
-    display: flex;
-    justify-content: space-around;
-    background: linear-gradient(180deg, #CB85FF 0%, #BB5FFF 100%);
-    padding: 126px 180px;
-  }
-  
-  .plan {
-    background-color: #252037;
-    color: white;
-    text-align: center;
-    padding: 42px;
-    border-radius: 14px;
-    width: 329px;
-    box-shadow: inset 0 4px 64px rgba(0, 0, 0, 0.4);
-  }
-  
-  .plan-title {
-    font-size: 48px;
-    color: #F7FF06;
-  }
-  
-  .plan-price {
-    font-size: 36px;
-    color: #F7FF06;
-  }
-  
-  .plan-details {
-    font-size: 14px;
-  }
-  
-  .footer {
-    padding: 20px;
-    background-color: #252037;
-    text-align: center;
-  }
-  
