@@ -87,6 +87,13 @@ body {
   transform: translateX(-50%);
 }
 
+.btn-container2 {
+  position: absolute;
+  bottom: -1100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .btn-block {
   background-color: #FFDA16;
   color: black;
