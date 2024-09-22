@@ -133,7 +133,10 @@ body {
 }
 
 .plan {
-  background-color: #252037;
+  background-image: url('public/images/ejercicios_para_rejuvenecer_la_edad_metabolica.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   text-align: center;
   padding: 40px;
