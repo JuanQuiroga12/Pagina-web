@@ -62,7 +62,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('public/images/frame-58.png'); /* Ruta de la imagen */
+  background-image: url('public/images/imagenback.jpg'); /* Ruta de la imagen */
   background-size: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
   background-position: center; /* Centra la imagen dentro del contenedor */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
