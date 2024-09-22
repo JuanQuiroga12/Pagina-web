@@ -16,8 +16,13 @@ body {
 }
 
 .header {
+  position: sticky;
   background-color: #252037;
-  padding: 20px 74px;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays on top of other elements */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+  padding: 20px 74px; /* Adjust padding to reduce height */
 }
 
 .frame46 {
