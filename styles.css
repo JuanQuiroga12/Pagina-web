@@ -140,7 +140,7 @@ body {
 }
 
 .plan {
-  background-image: url('public/images/ejercicios_para_rejuvenecer_la_edad_metabolica.webp');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/ejercicios_para_rejuvenecer_la_edad_metabolica.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -153,7 +153,7 @@ body {
 }
 
 .plan2 {
-  background-image: url('public/images/hombre\ musculoso.jpg');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/hombre\ musculoso.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -164,6 +164,7 @@ body {
   width: 300px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
+
 
 .plan-title {
   font-size: 28px;
