@@ -15,14 +15,130 @@ body {
   margin: 0 auto;
 }
 
-.header {
-  position: sticky;
-  background-color: #252037;
-  top: 0;
-  width: 100%;
-  z-index: 1000; /* Ensure it stays on top of other elements */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
-  padding: 20px 74px; /* Adjust padding to reduce height */
+header {
+    height: 60px; /* Ajusta la altura del header según tus necesidades */
+    background-color: #252037; /* Color de fondo del header */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegúrate de que el header esté por encima de otros elementos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra para dar un efecto de elevación */
+}
+
+header .logo {
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Ajusta según sea necesario */
+    transform: translateY(-50%);
+    z-index: 1001; /* Asegúrate de que el logo esté por encima del header */
+    height: 80px; /* Ajusta la altura del logo según tus necesidades */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    padding-top: 80px; /* Asegúrate de que el contenido no se superponga con el header */
+}/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px; /* Base font size */
+}
+
+header {
+    height: 60px; /* Ajusta la altura del header según tus necesidades */
+    background-color: #252037; /* Color de fondo del header */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegúrate de que el header esté por encima de otros elementos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra para dar un efecto de elevación */
+}
+
+header .logo {
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Ajusta según sea necesario */
+    transform: translateY(-50%);
+    z-index: 1001; /* Asegúrate de que el logo esté por encima del header */
+    height: 80px; /* Ajusta la altura del logo según tus necesidades */
+}
+
+.content {
+    padding-top: 80px; /* Asegúrate de que el contenido no se superponga con el header */
+    padding: 20px;
+}
+
+/* Estilos para botones */
+button {
+    background-color: #FAFF00; /* Color de fondo del botón */
+    color: #252037; /* Color del texto del botón */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem; /* Usa unidades relativas */
+    cursor: pointer;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición para el cambio de color */
+}
+
+button:hover {
+    background-color: #F7FF06; /* Color de fondo del botón al pasar el ratón */
+}
+
+/* Estilos para imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Media queries para diferentes resoluciones */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px; /* Aumenta el tamaño de la fuente en pantallas más grandes */
+    }
+
+    header {
+        height: 80px; /* Ajusta la altura del header en pantallas más grandes */
+    }
+
+    header .logo {
+        height: 100px; /* Ajusta la altura del logo en pantallas más grandes */
+    }
+
+    button {
+        padding: 15px 30px; /* Aumenta el padding de los botones en pantallas más grandes */
+        font-size: 1.2rem; /* Aumenta el tamaño de la fuente de los botones */
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        font-size: 20px; /* Aumenta el tamaño de la fuente en pantallas aún más grandes */
+    }
+
+    header {
+        height: 100px; /* Ajusta la altura del header en pantallas más grandes */
+    }
+
+    header .logo {
+        height: 120px; /* Ajusta la altura del logo en pantallas más grandes */
+    }
+
+    button {
+        padding: 20px 40px; /* Aumenta el padding de los botones en pantallas más grandes */
+        font-size: 1.5rem; /* Aumenta el tamaño de la fuente de los botones */
+    }
 }
 
 .frame46 {
