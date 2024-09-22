@@ -27,15 +27,15 @@ header {
     padding: 0 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra para dar un efecto de elevación */
 }
-
-header .logo {
+  header .logo {
     position: absolute;
     top: 50%;
     left: 20px; /* Ajusta según sea necesario */
     transform: translateY(-50%);
     z-index: 1001; /* Asegúrate de que el logo esté por encima del header */
-    height: 80px; /* Ajusta la altura del logo según tus necesidades */
+    width: 40%;
 }
+
 
 body {
     margin: 0;
@@ -109,11 +109,11 @@ img {
     }
 
     header {
-        height: 80px; /* Ajusta la altura del header en pantallas más grandes */
+        height: 100px; /* Ajusta la altura del header en pantallas más grandes */
     }
 
     header .logo {
-        height: 100px; /* Ajusta la altura del logo en pantallas más grandes */
+        width: 100%;
     }
 
     button {
@@ -128,11 +128,11 @@ img {
     }
 
     header {
-        height: 100px; /* Ajusta la altura del header en pantallas más grandes */
+        height: 120px; /* Ajusta la altura del header en pantallas más grandes */
     }
 
     header .logo {
-        height: 120px; /* Ajusta la altura del logo en pantallas más grandes */
+        width: 100%;
     }
 
     button {
