@@ -6,15 +6,13 @@
 
 body {
   font-family: 'Asul', sans-serif;
-  background-color: linear-gradient(to bottom, #ECD4FF, #CB85FF);
+  background-color: white;
   line-height: 1.6;
 }
 
 .web {
   width: 100%;
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 20px;
 }
 
 .header {
@@ -24,13 +22,8 @@ body {
 
 .frame46 {
   display: flex;
-  justify-content: space-between; /* Separa el logo del menú */
-  align-items: center; /* Centra verticalmente el contenido */
-}
-
-.logo {
-  display: flex;
-  align-items: center; /* Asegura que el logo esté centrado verticalmente */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .menu ul {
@@ -47,25 +40,25 @@ body {
 }
 
 .menu a:hover {
-  color: #f7ff06; /* Añadimos un efecto hover para mejor interactividad */
+  color: #f7ff06;
 }
 
 .logo img {
-  width: 120px; /* Ajusta el tamaño del logo si es necesario */
+  width: 120px;
   height: auto;
   border-radius: 20px;
 }
 
 .hero {
-  height: 600px; /* Ajusta la altura según la cantidad de contenido que desees mostrar */
+  height: 600px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('public/images/imagenback.jpg'); /* Ruta de la imagen */
-  background-size: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
-  background-position: center; /* Centra la imagen dentro del contenedor */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-image: url('public/images/imagenback.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
 }
 
@@ -87,13 +80,6 @@ body {
   transform: translateX(-50%);
 }
 
-.btn-container2 {
-  position: absolute;
-  bottom: -1100px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .btn-block {
   background-color: #FFDA16;
   color: black;
@@ -110,44 +96,47 @@ body {
   background-color: #e6c415;
 }
 
+/* Sección "¿Cómo funciona?" */
 .section-info {
-  background-color: linear-gradient(to bottom, #ECD4FF, #CB85FF);
+  background: linear-gradient(to bottom, #ECD4FF, #CB85FF);
   padding: 50px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: left;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .info-text {
-  width: 60%;
-  font-size: 20px;
+  width: 50%;
+}
+
+.section-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #252037;
+}
+
+.info-text p {
+  font-size: 18px;
   color: #333;
 }
 
+.info-image {
+  width: 40%;
+}
+
 .info-img {
-  width: 35%;
+  width: 100%;
   height: auto;
   border-radius: 15px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.section-info .btn-block {
-    margin-top: 20px; /* Ajusta este valor según sea necesario */
-    background-color: #FAFF00; /* Color de fondo del botón */
-    color: #252037; /* Color del texto del botón */
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px; /* Bordes redondeados */
-    transition: background-color 0.3s ease; /* Transición para el cambio de color */
-}
-
-.section-info .btn-block:hover {
-    background-color: #F7FF06; /* Color de fondo del botón al pasar el ratón */
-}
-
+/* Sección de planes */
 .section-plans {
   display: flex;
   justify-content: space-around;
@@ -181,7 +170,6 @@ body {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-
 .plan-title {
   font-size: 28px;
   margin-bottom: 15px;
@@ -205,6 +193,23 @@ body {
   text-align: center;
 }
 
-.footer .btn-container {
+.section-info .btn-block {
+    margin-top: 40px; /* Ajusta este valor según sea necesario */
+    background-color: #FFDA16;
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 25px;
+    border-radius: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.section-info .btn-block:hover {
+  background-color: #e6c415;
+}
+
+.footer .btn-container2 {
   margin: 0 auto;
 }
