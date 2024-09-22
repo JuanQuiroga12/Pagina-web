@@ -1,0 +1,371 @@
+.web {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.web .div-3 {
+  background-color: #ffffff;
+  height: 3020px;
+  overflow-x: hidden;
+  position: relative;
+  width: 1280px;
+}
+
+.web .img {
+  height: 727px;
+  left: -640px;
+  object-fit: cover;
+  position: absolute;
+  top: -1510px;
+  width: 1280px;
+}
+
+.web .action-block-wrapper {
+  align-items: center;
+  background-color: #ffd916;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 585px;
+  padding: 15px 0px;
+  position: absolute;
+  top: 531px;
+  width: 110px;
+}
+
+.web .action-block-2 {
+  color: #000000;
+  font-family: "Asap-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.41px;
+  line-height: 22px;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.web .frame-2 {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 727px;
+  justify-content: space-around;
+  left: 0;
+  position: absolute;
+  top: 727px;
+  width: 1280px;
+}
+
+.web .component-wrapper {
+  background: linear-gradient(180deg, rgb(236.3, 212.5, 255) 0%, rgb(202.63, 132.81, 255) 100%);
+  height: 727px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1280px;
+}
+
+.web .component-1 {
+  left: 111px !important;
+  top: 142px !important;
+}
+
+.web .text-wrapper-3 {
+  color: #000000;
+  font-family: "Bebas Neue-Regular", Helvetica;
+  font-size: 48px;
+  font-weight: 400;
+  height: 639px;
+  letter-spacing: 0;
+  line-height: 0.1px;
+  position: relative;
+  text-align: center;
+  width: 1280px;
+}
+
+.web .frame-3 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 94px;
+  height: 685px;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 2237px;
+  width: 1280px;
+}
+
+.web .btn-block-wrapper {
+  align-items: center;
+  background: linear-gradient(180deg, rgb(187, 95, 255) 0%, rgb(166.8, 45.69, 255) 100%);
+  display: flex;
+  gap: 34px;
+  height: 783px;
+  justify-content: center;
+  left: 0;
+  padding: 0px 18px;
+  position: absolute;
+  top: 0;
+  width: 1280px;
+}
+
+.web .div-wrapper {
+  align-items: center;
+  background-color: #ffd916;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 157px;
+  justify-content: center;
+  padding: 15px 0px;
+  position: relative;
+  width: 514px;
+}
+
+.web .action-block-3 {
+  color: #000000;
+  font-family: "Asap-Bold", Helvetica;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.41px;
+  line-height: 22px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.web .flexcontainer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 71px;
+  height: 518px;
+  width: 1280px;
+}
+
+.web .text {
+  align-self: stretch;
+  color: #000000;
+  font-family: "Asul-Regular", Helvetica;
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.1px;
+  position: relative;
+  text-align: center;
+}
+
+.web .text-wrapper-4 {
+  color: #000000;
+  font-family: "Asul-Regular", Helvetica;
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.1px;
+}
+
+.web .text-wrapper-5 {
+  font-size: 24px;
+}
+
+.web .frame-4 {
+  align-items: flex-start;
+  background: linear-gradient(180deg, rgb(203, 133, 255) 0%, rgb(186.81, 94.56, 255) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 0;
+  padding: 126px 180px;
+  position: absolute;
+  top: 1454px;
+  width: 1280px;
+}
+
+.web .frame-5 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.web .frame-48 {
+  height: 522.59px !important;
+}
+
+.web .btn-block-2 {
+  align-items: center;
+  background-color: #ffd916;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 48px;
+  left: 487px;
+  padding: 15px 0px;
+  position: absolute;
+  top: 692px;
+  width: 307px;
+}
+
+.web .action-block-4 {
+  color: #000000;
+  font-family: "Asap-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.41px;
+  line-height: 22px;
+  margin-bottom: -3px;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.web .header {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1280px;
+}
+
+.web .frame-6 {
+  align-items: flex-end;
+  align-self: stretch;
+  background-color: #252037;
+  display: flex;
+  gap: 540px;
+  height: 70px;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 6px 74px;
+  position: relative;
+  width: 100%;
+}
+
+.web .text-wrapper-6 {
+  color: #000000;
+  font-family: "Bebas Neue-Regular", Helvetica;
+  font-size: 48px;
+  font-weight: 400;
+  height: 518px;
+  letter-spacing: 0;
+  line-height: 0.1px;
+  margin-left: -1046px;
+  margin-top: -461px;
+  position: relative;
+  text-align: center;
+  width: 1280px;
+}
+
+.web .list {
+  align-items: flex-start;
+  border-radius: 6px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.web .item-margin {
+  align-items: flex-start;
+  align-self: stretch;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 0px 0px 32px;
+  position: relative;
+}
+
+.web .item {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  height: 20px;
+  padding: 0px 4px;
+  position: relative;
+}
+
+.web .div-wrapper-2 {
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: 4px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.web .text-wrapper-7 {
+  color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 13.7px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.web .cibercolegios {
+  color: #ffffff;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 13.8px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.web .png {
+  border-radius: 45px;
+  height: 160px;
+  margin-top: -174px;
+  position: relative;
+  width: 350px;
+}
+
+.web .group {
+  background-image: url(./image-2.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 141px;
+  left: 104px;
+  position: relative;
+  top: 9px;
+  width: 141px;
+}
+
+.web .rectangle {
+  background-color: #f4f6f3;
+  border-radius: 34px;
+  height: 6px;
+  left: 23px;
+  position: relative;
+  top: 47px;
+  width: 4px;
+}
