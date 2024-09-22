@@ -27,7 +27,7 @@ body {
   top: 0;
   width: 100%;
   z-index: 1000; /* Ensure it stays on top of other elements */
-  background-color: white; /* Optional: Set a background color */
+  background-color: #252037; /* Optional: Set a background color */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
 }
 
