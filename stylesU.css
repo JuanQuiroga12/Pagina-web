@@ -6,40 +6,31 @@
 body, html {
     height: 100%;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f4f4f4;
 }
 .container {
     display: flex;
-    width: 80%;
-    max-width: 1200px;
-    height: 600px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
 }
-.left {
+.left-section {
     flex: 1;
-    background-image: url('tu-imagen.jpg');
+    background-image: url('fitness-image.jpg'); /* Reemplaza con la URL de tu imagen */
     background-size: cover;
     background-position: center;
 }
-.right {
+.right-section {
     flex: 1;
-    background-color: #3A243B;
+    background-color: #C2A2D0;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 }
 .form-container {
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
+    background-color: #2D2231;
     padding: 40px;
-    border-radius: 10px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
     text-align: center;
 }
 .form-container img {
@@ -67,4 +58,11 @@ body, html {
 }
 .login-btn {
     background-color: #ffcc00;
+}
+.form-container label {
+    color: white;
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
+    font-size: 14px;
 }
