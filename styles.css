@@ -12,23 +12,12 @@ body {
 
 .web {
   width: 100%;
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 20px;
 }
 
 .header {
   background-color: #252037;
   padding: 20px 74px;
-}
-
-.sticky-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000; /* Ensure it stays on top of other elements */
-  background-color: #252037; /* Optional: Set a background color */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
 }
 
 .frame46 {
@@ -202,6 +191,23 @@ body {
   background-color: #252037;
   padding: 30px 0;
   text-align: center;
+}
+
+.section-info .btn-block {
+    margin-top: 40px; /* Ajusta este valor según sea necesario */
+    background-color: #FFDA16;
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 25px;
+    border-radius: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.section-info .btn-block:hover {
+  background-color: #e6c415;
 }
 
 .footer .btn-container2 {
