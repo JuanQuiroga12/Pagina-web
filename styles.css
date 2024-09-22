@@ -1,87 +1,170 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Asul', sans-serif;
-    background-color: white;
-  }
-  
-  .web {
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  
-  .header {
-    height: 160px;
-    background-color: #252037;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 74px;
-  }
-  
-  .menu ul {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-  
-  .menu a {
-    color: white;
-    font-size: 14px;
-    text-decoration: none;
-  }
-  
-  .logo img {
-    width: 141px;
-    height: 141px;
-    border-radius: 34px;
-  }
-  
-  .hero {
-    height: 300px; /* Ajusta la altura según tus necesidades */
-    width: 100%; /* Ajusta el ancho según tus necesidades */
-    max-width: 1200px; /* Establece un ancho máximo si es necesario */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-position: cover;
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    position: relative; /* Necesario para que los elementos hijos con position absolute se posicionen correctamente */
-    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del contenedor */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-  
-  .hero-title {
-    font-size: 48px;
-    color: white;
-    text-align: center;
-  }
-  .highlight {
-    font-size: 96px;
-    color: #FAFF00;
-  }
-  
-  .btn-container {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-  }
-  
-  .btn-block {
-    background-color: #FFDA16;
-    color: black;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 15px;
-    border-radius: 14px;
-    text-align: center;
-    cursor: pointer;
-  }
+
+body {
+  font-family: 'Asul', sans-serif;
+  background-color: linear-gradient(to bottom, #ECD4FF, #CB85FF);
+  line-height: 1.6;
+}
+
+.web {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  background-color: #252037;
+  padding: 20px 74px;
+}
+
+.frame46 {
+  display: flex;
+  justify-content: space-between; /* Separa el logo del menú */
+  align-items: center; /* Centra verticalmente el contenido */
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* Asegura que el logo esté centrado verticalmente */
+}
+
+.menu ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.menu a {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: #f7ff06; /* Añadimos un efecto hover para mejor interactividad */
+}
+
+.logo img {
+  width: 120px; /* Ajusta el tamaño del logo si es necesario */
+  height: auto;
+  border-radius: 20px;
+}
+
+.hero {
+  height: 600px; /* Ajusta la altura según la cantidad de contenido que desees mostrar */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('public/images/frame-58.png'); /* Ruta de la imagen */
+  background-size: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  position: relative;
+}
+
+.hero-title {
+  font-size: 48px;
+  color: white;
+  text-align: center;
+}
+
+.highlight {
+  font-size: 96px;
+  color: #FAFF00;
+}
+
+.btn-container {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-block {
+  background-color: #FFDA16;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px 25px;
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-block:hover {
+  background-color: #e6c415;
+}
+
+.section-info {
+  background-color: linear-gradient(to bottom, #ECD4FF, #CB85FF);
+  padding: 50px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.info-text {
+  width: 60%;
+  font-size: 20px;
+  color: #333;
+}
+
+.info-img {
+  width: 35%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section-plans {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ECD4FF;
+  padding: 50px;
+}
+
+.plan {
+  background-color: #252037;
+  color: white;
+  text-align: center;
+  padding: 40px;
+  border-radius: 14px;
+  width: 300px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.plan-title {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #FAFF00;
+}
+
+.plan-price {
+  font-size: 36px;
+  color: #F7FF06;
+  margin-bottom: 15px;
+}
+
+.plan-details {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.footer {
+  background-color: #252037;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.footer .btn-container {
+  margin: 0 auto;
+}
