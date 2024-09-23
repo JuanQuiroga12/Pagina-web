@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Entrenamientos</title>
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styleReservas.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="public/images/logo.png" alt="Logo">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="pantallaprincipal.html">INICIO</a></li>
+                <li><a href="entrenamientos.html">REGISTRAR ENTRENAMIENTO</a></li>
+                <li><a href="#">RESERVAR ENTRENAMIENTO</a></li>
+                <li><a href="#">CANJE DE PUNTOS</a></li>
+                <li><a href="#">PERFIL</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="web">
+        <section class="calendar-section">
+            <h2>Calendario</h2>
+            <!-- FullCalendar aquí -->
+            <div id="calendar"></div>
+        </section>
+
+        <section class="upcoming-reservations">
+            <h2>PRÓXIMAS RESERVAS</h2>
+            <div class="reservation-item">
+                <h3>2 AGOSTO</h3>
+                <p>12 am - 1 pm</p>
+                <img src="https://via.placeholder.com/44x44" alt="Avatar" class="avatar">
+            </div>
+            <div class="reservation-item">
+                <h3>9 AGOSTO</h3>
+                <p>10 am - 1 am</p>
+                <img src="https://via.placeholder.com/44x44" alt="Avatar" class="avatar">
+            </div>
+            <div class="reservation-item">
+                <h3>10 AGOSTO</h3>
+                <p>11 am - 12 am</p>
+                <img src="https://via.placeholder.com/44x44" alt="Avatar" class="avatar">
+            </div>
+        </section>
+
+        <button id="openModalBtn" class="reserve-btn">Reservar</button>
+
+        <!-- Modal de reserva -->
+        <div id="reservaModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="calendar-container">
+                    <h2>Selecciona la fecha de tu reserva:</h2>
+                    <!-- Input de tipo date para la ventana emergente -->
+                    <input type="date" id="fechaReserva" class="date-picker">
+                </div>
+
+                <button id="clearBtn" class="btn-limpiar">Limpiar</button>
+
+                <!-- Menú desplegable para seleccionar un entrenador -->
+                <div class="entrenador-dropdown">
+                    <label for="entrenadorSelect">Selecciona un entrenador:</label>
+                    <select id="entrenadorSelect">
+                        <option value="" disabled selected>Selecciona un entrenador</option>
+                        <option value="entrenador1">Entrenador 1</option>
+                        <option value="entrenador2">Entrenador 2</option>
+                        <option value="entrenador3">Entrenador 3</option>
+                    </select>
+                </div>
+
+                <h3>Selecciona la hora de tu reserva:</h3>
+                <div class="time-picker">
+                    <button class="time-slot" data-time="10-11">10-11</button>
+                    <button class="time-slot" data-time="11-12">11-12</button>
+                    <button class="time-slot" data-time="12-1">12-1</button>
+                    <button class="time-slot" data-time="1-2">1-2</button>
+                    <button class="time-slot" data-time="2-3">2-3</button>
+                    <button class="time-slot" data-time="3-4">3-4</button>
+                    <button class="time-slot" data-time="4-5">4-5</button>
+                </div>
+
+                <button id="reserveBtn" class="btn-reservar">Reservar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="scriptReservas.js"></script>
+</body>
+
+</html>
