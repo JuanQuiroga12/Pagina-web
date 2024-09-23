@@ -1,4 +1,3 @@
-// login.js
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita el envío del formulario
@@ -19,4 +18,9 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         // Mostrar mensaje de error si las credenciales son incorrectas
         alert('Usuario o contraseña incorrectos. Inténtalo de nuevo.');
     }
+});
+
+// Funcionalidad del botón "Volver al inicio"
+document.querySelector('.home-btn').addEventListener('click', function() {
+    window.location.href = "index.html";  // Redirige a la página de inicio
 });

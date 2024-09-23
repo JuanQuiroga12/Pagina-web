@@ -59,6 +59,10 @@ body, html {
 .login-btn {
     background-color: #ffcc00;
 }
+.home-btn { /* Nuevo estilo para el botón "Volver al inicio" */
+    background-color: #007BFF;
+    color: white;
+}
 .form-container label {
     color: white;
     margin-bottom: 5px;
