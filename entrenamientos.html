@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrenamientos Anteriores</title>
+    <link rel="stylesheet" href="styleentrenamientos.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="public/images/logo.png" alt="Logo">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">INICIO</a></li>
+                <li><a href="#">REGISTRAR ENTRENAMIENTO</a></li>
+                <li><a href="#">RESERVAR ENTRENAMIENTO</a></li>
+                <li><a href="#">CANJE DE PUNTOS</a></li>
+                <li><a href="#">PERFIL</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="web">
+        <!-- Botón para registrar un nuevo entrenamiento -->
+        <button id="openModalBtn" class="button-container">Registrar entrenamiento</button>
+        <!-- Modal para registrar entrenamiento -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span id="closeModalBtn" class="close">&times;</span>
+                <div class="modal-inner">
+                    <h2>Parte que entrenaste:</h2>
+                    <div class="dropdown">
+                        <select>
+                            <option value="cardio">Cardio</option>
+                            <option value="tren-superior">Tren Superior</option>
+                            <option value="tren-inferior">Tren Inferior</option>
+                        </select>
+                    </div>
+                    <h2>Duración del entrenamiento:</h2>
+                    <div class="dropdown">
+                        <select>
+                            <option value="30min">30 min</option>
+                            <option value="60min">60 min</option>
+                            <option value="90min">90 min</option>
+                        </select>
+                    </div>
+                    <h2>Fecha del entrenamiento:</h2>
+                    <input type="date">
+                    <div class="verification-code">
+                        <label>Código de verificación</label>
+                        <input type="text" value="2701ENT" disabled>
+                    </div>
+                    <button class="submit-btn">Registrar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Título de la sección de entrenamientos anteriores -->
+        <section class="workouts-section">
+            <h2>ENTRENAMIENTOS ANTERIORES</h2>
+
+            <!-- Entrenamientos anteriores -->
+            <div class="workout-item">
+                <h3>30 JULIO</h3>
+                <p>CARDIO + TREN SUPERIOR 60 MINUTOS</p>
+                <span>40 PUNTOS</span>
+            </div>
+
+            <div class="workout-item">
+                <h3>25 JULIO</h3>
+                <p>CARDIO + TREN INFERIOR 60 MINUTOS</p>
+                <div class="details">
+                    <span>40 PUNTOS</span>
+                    <span>00:00</span>
+                </div>
+            </div>
+
+            <div class="workout-item">
+                <h3>20 JULIO</h3>
+                <p>CARDIO 30 MINUTOS</p>
+                <div class="details">
+                    <span>40 PUNTOS</span>
+                    <span>00:00</span>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="emergenteregistro.js"></script>
+</body>
+</html>
