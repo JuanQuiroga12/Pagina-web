@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: 'Asul', sans-serif;
   background-color: white;
@@ -209,10 +205,41 @@ header .logo {
 
 .footer {
   background-color: #252037;
-  padding: 30px 0;
+  padding: 40px 0;
+  color: white;
   text-align: center;
+  font-size: 16px;
 }
 
-.footer .btn-container2 {
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+.footer h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #FAFF00;
+}
+
+.footer p {
+  margin-bottom: 10px;
+}
+
+.contact-section, .hours-section, .download-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.download-section img {
+  width: 150px;
+  margin: 10px;
+}
+
+.btn-container2 {
+  margin-top: 20px;
 }
