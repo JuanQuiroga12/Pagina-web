@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Asap', sans-serif;
+    background-color: #14151B;
+    color: #BDBDBD;
+}
+
+.header {
+    height: 80px;
+    background-color: #252037;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container img {
+    width: 100px;
+    height: auto;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #f7ff06;
+}
+
+main {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.profile-section {
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.profile-section h2 {
+    font-size: 24px;
+    color: #BDBDBD;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.profile-section p {
+    font-size: 16px;
+    color: #BDBDBD;
+    margin-top: 5px;
+}
+
+.products-section h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product img {
+    width: 92px;
+    height: 92px;
+    border-radius: 10px;
+}
+
+.product p {
+    font-size: 16px;
+    color: #BDBDBD;
+    margin-top: 10px;
+}
+
+.reservations-section h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 40px 0 20px;
+}
+
+.reservation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reservation p {
+    font-size: 18px;
+    color: #E0E0E0;
+}
+
+.reservation-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.logout-btn {
+    background-color: #004AAD;
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    margin-top: 50px;
+    border-radius: 100px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #003a8d;
+}
