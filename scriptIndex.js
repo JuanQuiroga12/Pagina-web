@@ -1,10 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     // --- FUNCIONALIDAD PARA REDIRECCIONAR BOTONES Y HACER SCROLL SUAVE ---
-    
-    // Capturamos el botón con id "uneteBtn" y redirigimos a la página "Unirme"
-    document.getElementById('uneteBtn').addEventListener('click', function() {
-        window.location.href = "Unirme.html";
-    });
 
     // Capturamos el botón "Conoce como" para desplazar a la sección "¿Cómo funciona?"
     document.getElementById('conoceComoBtn').addEventListener('click', function() {
