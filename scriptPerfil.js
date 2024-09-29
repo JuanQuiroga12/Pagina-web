@@ -34,5 +34,5 @@ document.querySelector('.logout-btn').addEventListener('click', function () {
     localStorage.removeItem('redeemedProducts');
 
     alert("Has cerrado sesión. Tus puntos han sido restablecidos a 1000 y tus productos canjeados se han reiniciado.");
-    window.location.href = "Unirme.html";
+    window.location.href = "index.html";
 });

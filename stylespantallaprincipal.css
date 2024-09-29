@@ -57,7 +57,7 @@ body {
 
 /* Restante del contenido */
 .user-card {
-    background-color: white;
+    background-color: #252037;
     padding: 20px;
     border-radius: 18px;
     display: flex;
@@ -101,13 +101,12 @@ body {
 }
 
 .reservation-item {
-    background-color: white;
+    background-color: #252037;
     padding: 15px;
     border-radius: 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
 }
 
 .reservation-date h3 {
@@ -150,10 +149,9 @@ body {
 }
 
 .workout-item {
-    background-color: white;
+    background-color: #252037;
     padding: 20px;
     border-radius: 20px;
-    border: 1px solid black;
     margin-top: 15px;
 }
 

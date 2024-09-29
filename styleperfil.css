@@ -10,6 +10,13 @@ body {
     color: #BDBDBD;
 }
 
+.web {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 .header {
     height: 80px;
     background-color: #252037;
