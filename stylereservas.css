@@ -167,7 +167,7 @@ h2, h3 {
 }
 
 #calendar {
-    max-width: 600px;
+    max-width: 550px;
     margin: 0 auto;
     padding: 0 10px;
 }
@@ -187,7 +187,7 @@ h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: #252037;
     color: #BDBDBD;
     border-radius: 10px;
     padding: 15px;

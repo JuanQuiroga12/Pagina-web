@@ -93,12 +93,11 @@ body {
 }
 
 .workout-item {
-    background-color: white;
+    background-color: #252037;
     padding: 20px;
     border-radius: 20px;
     margin-bottom: 20px;
     color: #BDBDBD;
-    border: 1px solid black;
 }
 
 .workout-item h3 {
