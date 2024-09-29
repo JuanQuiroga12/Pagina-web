@@ -20,6 +20,7 @@ body {
 .header {
     height: 80px;
     background-color: #252037;
+    position: sticky;
     display: flex;
     padding: 20px;
     justify-content: space-between;
