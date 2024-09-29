@@ -40,10 +40,10 @@ header {
 header .logo {
   position: absolute;
   top: 50%;
-  left: 20px; /* Ajusta según sea necesario */
+  left: 20px;
   transform: translateY(-50%);
-  z-index: 1001; /* Asegúrate de que el logo esté por encima del header */
-  height: 80px; /* Ajusta la altura del logo según tus necesidades */
+  z-index: 1001;
+  height: 80px;
 }
 
 .menu ul {
@@ -71,7 +71,7 @@ header .logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('public/images/imagenback.jpg');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/backiailustrator.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -79,7 +79,7 @@ header .logo {
 }
 
 .hero-title {
-  font-size: 48px;
+  font-size: 70px;
   color: white;
   text-align: center;
 }
@@ -102,6 +102,7 @@ header .logo {
   font-size: 16px;
   font-weight: 700;
   padding: 15px 25px;
+  margin-top: 10%;
   border-radius: 14px;
   text-align: center;
   cursor: pointer;
@@ -115,7 +116,7 @@ header .logo {
 /* Sección "¿Cómo funciona?" */
 .section-info {
   background: linear-gradient(to bottom, #ECD4FF, #CB85FF);
-  padding: 50px 20px;
+  padding: 5% 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -132,13 +133,13 @@ header .logo {
 }
 
 .section-title {
-  font-size: 36px;
+  font-size: 50px;
   margin-bottom: 20px;
   color: #252037;
 }
 
 .info-text p {
-  font-size: 18px;
+  font-size: 20px;
   color: #333;
 }
 
@@ -161,7 +162,7 @@ header .logo {
 }
 
 .plan {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/ejercicios_para_rejuvenecer_la_edad_metabolica.webp');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/plan1.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -174,7 +175,7 @@ header .logo {
 }
 
 .plan2 {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/hombre\ musculoso.jpg');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/images/plan2.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -242,4 +243,68 @@ header .logo {
 
 .btn-container2 {
   margin-top: 20px;
+}
+
+/* Media Query para pantallas móviles */
+@media (max-width: 768px) {
+  /* Ajustar el título del hero */
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .highlight {
+    font-size: 60px;
+  }
+
+  .section-info {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .info-text {
+    width: 100%;
+    order: 1;
+  }
+
+  .info-image {
+    width: 80%;
+    order: 2;
+    margin-top: 20px;
+  }
+
+  .info-img {
+    width: 100%;
+  }
+
+  /* Alinear los planes uno debajo del otro en móviles */
+  .section-plans {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plan, .plan2 {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-section, .hours-section, .download-section {
+    min-width: 100%;
+  }
+
+  .btn-block {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 }
