@@ -65,6 +65,111 @@ header .logo {
   cursor: pointer;
 }
 
+.modal {
+  display: none;  /* La ventana modal está oculta inicialmente */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #14151B;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 100%;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ccc;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+.left-section {
+    flex: 1;
+    background-image: url('fitness-image.jpg'); /* Reemplaza con la URL de tu imagen */
+    background-size: cover;
+    background-position: center;
+}
+.right-section {
+    flex: 1;
+    background-color: #C2A2D0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container {
+    background-color: #2D2231;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+.form-container img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.register-btn {
+    background-color: #00b150;
+}
+.login-btn {
+    background-color: #ffcc00;
+}
+.home-btn { /* Nuevo estilo para el botón "Volver al inicio" */
+    background-color: #007BFF;
+    color: white;
+}
+.form-container label {
+    color: white;
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+}
+
+
 .hero {
   height: 600px;
   width: 100%;
