@@ -27,32 +27,34 @@
     </header>
 
     <div class="web">
-        <section class="calendar-section">
-            <h2>Calendario</h2>
-            <!-- FullCalendar aquí -->
-            <div id="calendar"></div>
-        </section>
+        <!-- Sección de contenido con calendario y próximas reservas -->
+        <div class="content-container">
+            <section class="calendar-section">
+                <h2>Calendario</h2>
+                <!-- FullCalendar aquí -->
+                <div id="calendar"></div>
+            </section>
 
-        <section class="upcoming-reservations">
-            <h2>PRÓXIMAS RESERVAS</h2>
-            <div class="reservation-item">
-                <h3>2 AGOSTO</h3>
-                <p>12 am - 1 pm</p>
-                <img src="https://via.placeholder.com/44x44" alt="Avatar" class="avatar">
-            </div>
-            <div class="reservation-item">
-                <h3>9 AGOSTO</h3>
-                <p>10 am - 1 am</p>
-                <img src="https://via.placeholder.com/44x44" alt="Avatar" class="avatar">
-            </div>
-            <div class="reservation-item">
-                <h3>10 AGOSTO</h3>
-                <p>11 am - 12 am</p>
-                <img src="https://via.placeholder.com/44x44" alt="Avatar" class="avatar">
-            </div>
-        </section>
-
-        <button id="openModalBtn" class="reserve-btn">Reservar</button>
+            <section class="upcoming-reservations">
+                <h2>PRÓXIMAS RESERVAS</h2>
+                <div class="reservation-item">
+                    <h3>2 AGOSTO</h3>
+                    <p>12 am - 1 pm</p>
+                    <img src="https://via.placeholder.com/44x44" alt="Avatar" class="avatar">
+                </div>
+                <div class="reservation-item">
+                    <h3>9 AGOSTO</h3>
+                    <p>10 am - 1 am</p>
+                    <img src="https://via.placeholder.com/44x44" alt="Avatar" class="avatar">
+                </div>
+                <div class="reservation-item">
+                    <h3>10 AGOSTO</h3>
+                    <p>11 am - 12 am</p>
+                    <img src="https://via.placeholder.com/44x44" alt="Avatar" class="avatar">
+                </div>
+                <button id="openModalBtn" class="reserve-btn">Reservar</button>
+            </section>
+        </div>
 
         <!-- Modal de reserva -->
         <div id="reservaModal" class="modal">

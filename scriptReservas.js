@@ -7,17 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
         events: [
             {
                 title: 'Reserva de entrenamiento',
-                start: '2024-08-02',
+                start: '2024-09-02',
                 end: '2024-08-02'
             },
             {
                 title: 'Reserva de entrenamiento',
-                start: '2024-08-09',
+                start: '2024-09-09',
                 end: '2024-08-09'
             },
             {
                 title: 'Reserva de entrenamiento',
-                start: '2024-08-10',
+                start: '2024-09-10',
                 end: '2024-08-10'
             }
         ]
