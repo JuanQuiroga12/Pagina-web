@@ -135,6 +135,10 @@ header .logo {
   align-items: center;
 }
 
+#section-info, #planes, #promocion {
+  scroll-margin-top: 80px; /* Ajusta al tamaño del header */
+}
+
 .container {
   display: flex;
   justify-content: space-between;
