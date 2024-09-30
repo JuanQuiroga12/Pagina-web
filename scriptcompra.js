@@ -1,7 +1,7 @@
 // Obtener elementos del DOM
 const purchaseModal = document.getElementById('purchaseModal');
 const closePurchaseModal = document.getElementById('closePurchaseModal');
-const buyButtons = document.querySelectorAll('.btn-block');
+const buyButtons = document.querySelectorAll('.btn-comprar'); // Cambiar selector para solo los botones "Comprar"
 const purchaseForm = document.getElementById('purchaseForm');
 const validationErrorModal = document.getElementById('validationErrorModal');
 const closeValidationErrorModal = document.getElementById('closeValidationErrorModal');
