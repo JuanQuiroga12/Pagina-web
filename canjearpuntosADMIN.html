@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canje de Puntos - Admin</title>
+    <link rel="stylesheet" href="stylecanjearpuntos.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="public/images/logo.png" alt="Logo">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="pantallaprincipalADMIN.html">INICIO</a></li>
+                <li><a href="admin_usuarios.html">USUARIOS</a></li>
+                <li><a href="canjearpuntosADMIN.html">PRODUCTOS</a></li>
+                <li><a href="perfil.html">PERFIL</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="points-section">
+            <div class="points-circle">
+                <span id="totalPoints">1000</span>
+                <p>Tus Puntos</p>
+            </div>
+        </section>
+
+        <section class="rewards-section" id="rewardsSection">
+            <!-- Productos existentes -->
+            <div class="reward" data-points="800">
+                <img src="public/images/mancuerdas.png" alt="Mancuerdas">
+                <div class="product-info">
+                    <p>800 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+
+            <div class="reward" data-points="750">
+                <img src="public/images/tapete.png" alt="Tapete">
+                <div class="product-info">
+                    <p>750 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+            <div class="reward" data-points="700">
+                <img src="public/images/pesas.png" alt="Pesas">
+                <div class="product-info">
+                    <p>700 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+            <div class="reward" data-points="500">
+                <img src="public/images/bandas.png" alt="Bandas de ejercicio">
+                <div class="product-info">
+                    <p>500 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+            <div class="reward" data-points="650">
+                <img src="public/images/soga.png" alt="Soga">
+                <div class="product-info">
+                    <p>650 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+            <div class="reward" data-points="700">
+                <img src="public/images/rodillo.png" alt="Rodillo">
+                <div class="product-info">
+                    <p>700 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+            <div class="reward" data-points="500">
+                <img src="public/images/creatina.png" alt="Creatina">
+                <div class="product-info">
+                    <p>500 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+            <div class="reward" data-points="500">
+                <img src="public/images/creatina2.png" alt="MuscleTech - Nitro Tech">
+                <div class="product-info">
+                    <p>500 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+            <div class="reward" data-points="4000">
+                <img src="public/images/termo.png" alt="Termo Stanley">
+                <div class="product-info">
+                    <p>4000 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+            <div class="reward" data-points="400">
+                <img src="public/images/lonchera.png" alt="Lonchera">
+                <div class="product-info">
+                    <p>400 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+            <div class="reward" data-points="550">
+                <img src="public/images/pantaloneta.png" alt="Pantaloneta">
+                <div class="product-info">
+                    <p>550 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+            <div class="reward" data-points="750">
+                <img src="public/images/camisa.png" alt="Camisa de entrenamiento">
+                <div class="product-info">
+                    <p>750 Puntos</p>
+                    <button class="btn-canjear">Canjear</button>
+                </div>
+            </div>
+
+            <!-- Caja para agregar nuevos productos -->
+            <div class="add-product-box">
+                <button id="addProductBtn" class="add-product-btn">+</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para agregar productos -->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Agregar Nuevo Producto</h2>
+            <form id="addProductForm">
+                <label for="productName">Nombre del Producto:</label>
+                <input type="text" id="productName" required>
+
+                <label for="productPoints">Puntos:</label>
+                <input type="number" id="productPoints" required>
+
+                <label for="productImage">URL de la Imagen:</label>
+                <input type="text" id="productImage" required>
+
+                <button type="submit" class="submit-btn">Guardar Producto</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scriptCanjePuntosAdmin.js"></script>
+</body>
+
+</html>

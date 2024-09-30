@@ -1,17 +1,30 @@
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita el envío del formulario
 
+    // Obtener los valores ingresados por el usuario
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Simulación: validación de usuario
+    // Definir credenciales válidas de usuario y administrador
     const validUsername = "Laura Tavares";
     const validPassword = "123456";
+    
+    const adminUsername = "ADMIN";
+    const adminPassword = "1234";
 
+    // Verificar si es un usuario regular
     if (username === validUsername && password === validPassword) {
-        window.location.href = "pantallaprincipal.html";
-    } else {
-        alert('Usuario o contraseña incorrectos.');
+        // Redirigir a la página principal de usuarios regulares
+        window.location.href = "pantallaprincipal.html"; // Asegúrate de que esta ruta sea correcta
+    }
+    // Verificar si es el administrador
+    else if (username === adminUsername && password === adminPassword) {
+        // Redirigir a la página del administrador
+        window.location.href = "pantallaprincipalADMIN.html"; // Página para el administrador
+    } 
+    else {
+        // Mostrar mensaje de error si las credenciales son incorrectas
+        alert('Usuario o contraseña incorrectos. Inténtalo de nuevo.');
     }
 });
 

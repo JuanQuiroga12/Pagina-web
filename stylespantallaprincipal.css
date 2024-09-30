@@ -33,6 +33,62 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Tabla de usuarios */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th, .user-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: #BDBDBD;
+}
+
+.user-table th {
+    background-color: #252037;
+    color: white;
+}
+
+.user-table td button {
+    background-color: #004AAD;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.user-table td button:hover {
+    background-color: #003a8d;
+}
+
+.submit-btn {
+    background-color: #004AAD;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+}
+
+.submit-btn:hover {
+    background-color: #003a8d;
+}
+
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
 .logo-container img {
     width: 100px;
     height: auto;
@@ -173,7 +229,7 @@ body {
 
 .modal {
     display: none; /* Modal oculto por defecto */
-    position: fixed; 
+    position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
@@ -185,40 +241,38 @@ body {
     display: flex;
 }
 
-
-  
-  /* Contenido del Modal */
-  .modal-content {
+/* Contenido del Modal */
+.modal-content {
     background-color: #14151B;
     padding: 20px;
     border-radius: 20px;
     width: 400px;
     border: 1px solid #004AAD;
     position: relative;
-  }
-  
-  /* Botón de cerrar modal */
-  .close {
+}
+
+/* Botón de cerrar modal */
+.close {
     color: white;
     position: absolute;
     top: 10px;
     right: 20px;
     font-size: 30px;
     cursor: pointer;
-  }
-  
-  /* Estilos para los campos y botones dentro del modal */
-  .dropdown select,
-  .verification-code input,
-  input[type="date"] {
+}
+
+/* Estilos para los campos y botones dentro del modal */
+.dropdown select,
+.verification-code input,
+input[type="date"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
     border: 1px solid #BDBDBD;
-  }
-  
-  .submit-btn {
+}
+
+.submit-btn {
     background-color: #004AAD;
     color: white;
     padding: 15px 20px;
@@ -226,5 +280,44 @@ body {
     border: none;
     cursor: pointer;
     width: 100%;
-  }
-  
+}
+
+.submit-btn:hover {
+    background-color: #003a8d;
+}
+
+/* Estilos adicionales para el modal de edición de usuarios */
+#userModal {
+    display: none; /* Asegurarse de que el modal está oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#userModal .modal-content {
+    background-color: #252037;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 100%;
+}
+
+#userModal h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+#userModal input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}

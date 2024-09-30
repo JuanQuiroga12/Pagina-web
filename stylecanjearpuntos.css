@@ -123,3 +123,129 @@ main {
 .btn-canjear:hover {
     background-color: #bbbbbb;
 }
+
+/* Caja para añadir productos */
+.add-product-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #252037;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    border: 2px dashed #D9D9D9;
+    cursor: pointer;
+}
+
+.add-product-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 64px;
+    color: #D9D9D9;
+    cursor: pointer;
+}
+
+.add-product-btn:hover {
+    color: white;
+}
+
+/* Estilo para el modal de agregar producto */
+#addProductModal {
+    display: none; /* Oculto por defecto */
+    position: fixed; 
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Contenido del modal */
+#addProductModal .modal-content {
+    background-color: #252037; /* Fondo consistente con la página */
+    padding: 30px;
+    border-radius: 20px;
+    width: 400px;
+    border: 2px solid #004AAD; /* Borde azul para dar más contraste */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para el modal */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo del encabezado del modal */
+#addProductModal h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Botón de cerrar (X) */
+#addProductModal .close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Estilo de los campos dentro del modal */
+#addProductModal input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #E0E0E0;
+    background-color: #14151B;
+    color: white;
+    font-size: 16px;
+}
+
+/* Placeholder con color más claro */
+#addProductModal input::placeholder {
+    color: #BDBDBD;
+}
+
+/* Botón de guardar producto */
+#addProductModal .submit-btn {
+    background-color: #004AAD;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#addProductModal .submit-btn:hover {
+    background-color: #003a8d;
+}
+
+/* Botón de cancelar (opcional) */
+#addProductModal .cancel-btn {
+    background-color: #D9D9D9;
+    color: black;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#addProductModal .cancel-btn:hover {
+    background-color: #bbbbbb;
+}
+
