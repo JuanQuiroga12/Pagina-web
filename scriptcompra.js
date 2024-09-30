@@ -6,6 +6,9 @@ const purchaseForm = document.getElementById('purchaseForm');
 const validationErrorModal = document.getElementById('validationErrorModal');
 const closeValidationErrorModal = document.getElementById('closeValidationErrorModal');
 const closeValidationErrorButton = document.getElementById('closeValidationErrorButton');
+const purchaseConfirmationModal = document.getElementById('purchaseConfirmationModal');
+const closePurchaseConfirmationModal = document.getElementById('closePurchaseConfirmationModal');
+const closePurchaseConfirmationButton = document.getElementById('closePurchaseConfirmationButton');
 
 // Función para abrir el modal de compra
 function openPurchaseModal() {
@@ -18,13 +21,24 @@ function closePurchaseModalFunc() {
 }
 
 // Función para abrir el modal de error de validación
-function openValidationErrorModal() {
+function openValidationErrorModal(message) {
+  validationErrorModal.querySelector('p').textContent = message;
   validationErrorModal.style.display = 'flex';
 }
 
 // Función para cerrar el modal de error de validación
 function closeValidationErrorModalFunc() {
   validationErrorModal.style.display = 'none';
+}
+
+// Función para abrir el modal de confirmación de compra
+function openPurchaseConfirmationModal() {
+  purchaseConfirmationModal.style.display = 'flex';
+}
+
+// Función para cerrar el modal de confirmación de compra
+function closePurchaseConfirmationModalFunc() {
+  purchaseConfirmationModal.style.display = 'none';
 }
 
 // Añadir evento de clic a los botones de compra
@@ -39,6 +53,10 @@ closePurchaseModal.addEventListener('click', closePurchaseModalFunc);
 closeValidationErrorModal.addEventListener('click', closeValidationErrorModalFunc);
 closeValidationErrorButton.addEventListener('click', closeValidationErrorModalFunc);
 
+// Añadir evento de clic al botón de cerrar del modal de confirmación de compra
+closePurchaseConfirmationModal.addEventListener('click', closePurchaseConfirmationModalFunc);
+closePurchaseConfirmationButton.addEventListener('click', closePurchaseConfirmationModalFunc);
+
 // Cerrar el modal si se hace clic fuera del contenido del modal
 window.addEventListener('click', (event) => {
   if (event.target === purchaseModal) {
@@ -46,6 +64,9 @@ window.addEventListener('click', (event) => {
   }
   if (event.target === validationErrorModal) {
     closeValidationErrorModalFunc();
+  }
+  if (event.target === purchaseConfirmationModal) {
+    closePurchaseConfirmationModalFunc();
   }
 });
 
@@ -59,10 +80,14 @@ purchaseForm.addEventListener('submit', (event) => {
   const cvv = document.getElementById('cvv').value;
 
   if (!email || !cardName || !cardNumber || !expiryDate || !cvv) {
-    openValidationErrorModal();
+    openValidationErrorModal('Por favor, rellena todos los campos.');
+  } else if (!/^\d{16}$/.test(cardNumber)) {
+    openValidationErrorModal('El número de tarjeta debe tener 16 dígitos.');
+  } else if (!/^\d{3}$/.test(cvv)) {
+    openValidationErrorModal('El CVV debe tener 3 dígitos.');
   } else {
-    // Aquí puedes agregar la lógica para procesar el formulario
-    alert('Compra confirmada');
+    // Mostrar el modal de confirmación de compra
+    openPurchaseConfirmationModal();
     closePurchaseModalFunc();
   }
 });

@@ -64,31 +64,41 @@
       </div>
     </div>
     
-    <!-- Modal de compra -->
-    <div id="purchaseModal" class="modal">
-      <div class="form-container">
-        <span id="closePurchaseModal" class="close-btn">&times;</span>
-        <h2>Compra tu Plan</h2>
-        <form id="purchaseForm">
-          <label for="email">Correo registrado en el gimnasio</label>
-          <input type="email" id="email" name="email" placeholder="correo@ejemplo.com">
-    
-          <label for="cardName">Nombre en la tarjeta</label>
-          <input type="text" id="cardName" name="cardName" placeholder="Nombre Completo">
-    
-          <label for="cardNumber">Número de tarjeta</label>
-          <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456">
-    
-          <label for="expiryDate">Fecha de expiración</label>
-          <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/AA">
-    
-          <label for="cvv">CVV</label>
-          <input type="text" id="cvv" name="cvv" placeholder="123">
-    
-          <button type="submit" class="btn-block">Confirmar Compra</button>
-        </form>
-      </div>
+  <!-- Modal de compra -->
+  <div id="purchaseModal" class="modal">
+    <div class="form-container">
+      <span id="closePurchaseModal" class="close-btn">&times;</span>
+      <h2>Compra tu Plan</h2>
+      <form id="purchaseForm">
+        <label for="email">Correo registrado</label>
+        <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+  
+        <label for="cardName">Nombre en la tarjeta</label>
+        <input type="text" id="cardName" name="cardName" placeholder="Nombre Completo" required>
+  
+        <label for="cardNumber">Número de tarjeta</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" pattern="\d*" maxlength="16" required>
+  
+        <label for="expiryDate">Fecha de expiración</label>
+        <input type="month" id="expiryDate" name="expiryDate" required>
+  
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" placeholder="123" pattern="\d*" maxlength="3" required>
+  
+        <button type="submit" class="btn-block">Confirmar Compra</button>
+      </form>
     </div>
+  </div>
+  
+  <!-- Modal de confirmación de compra -->
+  <div id="purchaseConfirmationModal" class="modal">
+    <div class="form-container">
+      <span id="closePurchaseConfirmationModal" class="close-btn">&times;</span>
+      <h2>Compra Confirmada</h2>
+      <p>Tu compra ha sido realizada con éxito.</p>
+      <button id="closePurchaseConfirmationButton" class="btn-block">Cerrar</button>
+    </div>
+  </div>
     
     <!-- Modal de error de validación -->
     <div id="validationErrorModal" class="modal">
