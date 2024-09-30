@@ -94,3 +94,9 @@ userForm.addEventListener('submit', (e) => {
 
 // Renderizar usuarios al cargar la página
 renderUsers();
+
+document.querySelector('.logout-btn').addEventListener('click', function () {
+
+    alert("Has cerrado sesión como administrador");
+    window.location.href = "index.html";
+});

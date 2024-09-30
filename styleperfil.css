@@ -89,16 +89,37 @@ main {
     gap: 20px;
 }
 
+.product {
+    position: relative;
+}
+
 .product img {
     width: 92px;
     height: 92px;
     border-radius: 10px;
+    transition: filter 0.3s;
 }
 
-.product p {
-    font-size: 16px;
-    color: #BDBDBD;
-    margin-top: 10px;
+.product:hover img {
+    filter: blur(2px);
+}
+
+.product .redeem-btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #004AAD;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.product:hover .redeem-btn {
+    display: block;
 }
 
 .reservations-section h3 {
@@ -139,4 +160,51 @@ main {
 
 .logout-btn:hover {
     background-color: #003a8d;
+}
+
+/* Modal para el QR */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #252037;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+}
+
+.modal-content h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    color: #BDBDBD;
+    margin-bottom: 20px;
+}
+
+.modal-content img {
+    width: 150px;
+    height: 150px;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
 }

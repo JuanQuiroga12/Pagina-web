@@ -446,6 +446,11 @@ body, html {
     font-size: 14px;
   }
 }
+
+#purchaseModal h2 {
+  color: white;
+}
+
 /* Modal de error de validación */
 #validationErrorModal .form-container {
   background-color: #2D2231;

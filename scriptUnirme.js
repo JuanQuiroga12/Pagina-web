@@ -6,7 +6,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const password = document.getElementById('password').value;
 
     // Definir credenciales válidas de usuario y administrador
-    const validUsername = "Laura Tavares";
+    const validUsername = "Laura";
     const validPassword = "123456";
     
     const adminUsername = "ADMIN";

@@ -321,3 +321,18 @@ input[type="date"] {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+
+.logout-btn {
+    background-color: #004AAD;
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    margin-top: 50px;
+    border-radius: 100px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #003a8d;
+}
