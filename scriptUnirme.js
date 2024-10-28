@@ -5,27 +5,28 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Definir credenciales válidas de usuario y administrador
-    const validUsername = "Laura";
-    const validPassword = "123456";
-    
-    const adminUsername = "ADMIN";
-    const adminPassword = "1234";
+    // Cargar usuarios desde el archivo JSON
+    fetch('database.json')
+        .then(response => response.json())
+        .then(data => {
+            const user = data.usuarios.find(u => u.username === username && u.password === password);
 
-    // Verificar si es un usuario regular
-    if (username === validUsername && password === validPassword) {
-        // Redirigir a la página principal de usuarios regulares
-        window.location.href = "pantallaprincipal.html"; // Asegúrate de que esta ruta sea correcta
-    }
-    // Verificar si es el administrador
-    else if (username === adminUsername && password === adminPassword) {
-        // Redirigir a la página del administrador
-        window.location.href = "pantallaprincipalADMIN.html"; // Página para el administrador
-    } 
-    else {
-        // Mostrar mensaje de error si las credenciales son incorrectas
-        alert('Usuario o contraseña incorrectos. Inténtalo de nuevo.');
-    }
+            if (user) {
+                if (user.username === 'ADMIN') {
+                    // Redirigir a la página del administrador
+                    window.location.href = "pantallaprincipalADMIN.html"; 
+                } else {
+                    // Redirigir a la página principal de usuarios regulares
+                    window.location.href = "pantallaprincipal.html";
+                }
+            } else {
+                // Mostrar mensaje de error si las credenciales son incorrectas
+                alert('Usuario o contraseña incorrectos. Inténtalo de nuevo.');
+            }
+        })
+        .catch(error => {
+            console.error('Error al verificar el inicio de sesión:', error);
+        });
 });
 
 // Alternar entre formularios de login y registro
@@ -53,10 +54,38 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         return;
     }
 
-    // Simulación: guardar los datos en la base de datos (aquí usarías el backend real)
-    alert('Usuario registrado exitosamente.');
-    // Redirigir o limpiar el formulario
-    document.getElementById('registerForm').reset();
-    document.getElementById('registerForm').style.display = 'none';
-    document.getElementById('loginForm').style.display = 'block';
+    // Crear un nuevo objeto de usuario
+    const newUser = {
+        username: regUsername,
+        email: regEmail,
+        password: regPassword,
+        puntos: 0,
+        productosRedimidos: []
+    };
+
+    // Leer el archivo JSON, agregar el nuevo usuario y guardar los cambios
+    fetch('database.json')
+        .then(response => response.json())
+        .then(data => {
+            // Agregar el nuevo usuario al array de usuarios
+            data.usuarios.push(newUser);
+
+            // Guardar los datos actualizados en el archivo JSON (necesita servidor para persistencia)
+            return fetch('database.json', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+        })
+        .then(() => {
+            alert('Usuario registrado exitosamente.');
+            // Restablecer y mostrar el formulario de login
+            document.getElementById('registerForm').reset();
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error al registrar usuario:', error);
+            alert('Hubo un error al registrar el usuario. Inténtalo nuevamente.');
+        });
 });
