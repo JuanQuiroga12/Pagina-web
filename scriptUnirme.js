@@ -1,91 +1,98 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita el envío del formulario
+document.addEventListener('DOMContentLoaded', function () {
+    // Manejo de inicio de sesión
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+        event.preventDefault();
 
-    // Obtener los valores ingresados por el usuario
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
 
-    // Cargar usuarios desde el archivo JSON
-    fetch('database.json')
-        .then(response => response.json())
-        .then(data => {
-            const user = data.usuarios.find(u => u.username === username && u.password === password);
+        if (!username || !password) {
+            alert('Por favor ingresa un nombre de usuario y contraseña.');
+            return;
+        }
 
-            if (user) {
-                if (user.username === 'ADMIN') {
-                    // Redirigir a la página del administrador
-                    window.location.href = "pantallaprincipalADMIN.html"; 
-                } else {
-                    // Redirigir a la página principal de usuarios regulares
-                    window.location.href = "pantallaprincipal.html";
+        fetch('login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded', // Usar este formato para PHP
+            },
+            body: new URLSearchParams({ username, password }).toString(),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al contactar con el servidor.');
                 }
-            } else {
-                // Mostrar mensaje de error si las credenciales son incorrectas
-                alert('Usuario o contraseña incorrectos. Inténtalo de nuevo.');
-            }
-        })
-        .catch(error => {
-            console.error('Error al verificar el inicio de sesión:', error);
-        });
-});
-
-// Alternar entre formularios de login y registro
-document.getElementById('showRegisterForm').addEventListener('click', function() {
-    document.getElementById('loginForm').style.display = 'none';
-    document.getElementById('registerForm').style.display = 'block';
-});
-
-document.getElementById('showLoginForm').addEventListener('click', function() {
-    document.getElementById('registerForm').style.display = 'none';
-    document.getElementById('loginForm').style.display = 'block';
-});
-
-// Manejar el registro de nuevos usuarios
-document.getElementById('registerForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const regUsername = document.getElementById('regUsername').value;
-    const regEmail = document.getElementById('regEmail').value;
-    const regPassword = document.getElementById('regPassword').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-
-    if (regPassword !== confirmPassword) {
-        alert('Las contraseñas no coinciden.');
-        return;
-    }
-
-    // Crear un nuevo objeto de usuario
-    const newUser = {
-        username: regUsername,
-        email: regEmail,
-        password: regPassword,
-        puntos: 0,
-        productosRedimidos: []
-    };
-
-    // Leer el archivo JSON, agregar el nuevo usuario y guardar los cambios
-    fetch('database.json')
-        .then(response => response.json())
-        .then(data => {
-            // Agregar el nuevo usuario al array de usuarios
-            data.usuarios.push(newUser);
-
-            // Guardar los datos actualizados en el archivo JSON (necesita servidor para persistencia)
-            return fetch('database.json', {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'success') {
+                    window.location.href = data.redirect;
+                } else {
+                    alert(data.message || 'Error al iniciar sesión. Verifica tus credenciales.');
+                }
+            })
+            .catch(error => {
+                console.error('Error al procesar el inicio de sesión:', error);
+                alert('Hubo un problema al intentar iniciar sesión. Inténtalo más tarde.');
             });
+    });
+
+    // Alternar entre formularios de login y registro
+    document.getElementById('showRegisterForm').addEventListener('click', function () {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'block';
+    });
+
+    document.getElementById('showLoginForm').addEventListener('click', function () {
+        document.getElementById('registerForm').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'block';
+    });
+
+    // Manejo de registro de nuevos usuarios
+    document.getElementById('registerForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const regUsername = document.getElementById('regUsername').value.trim();
+        const regEmail = document.getElementById('regEmail').value.trim();
+        const regPassword = document.getElementById('regPassword').value.trim();
+        const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+        if (!regUsername || !regEmail || !regPassword || !confirmPassword) {
+            alert('Por favor completa todos los campos.');
+            return;
+        }
+
+        if (regPassword !== confirmPassword) {
+            alert('Las contraseñas no coinciden.');
+            return;
+        }
+
+        fetch('register.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded', // Usar este formato para PHP
+            },
+            body: new URLSearchParams({ username: regUsername, email: regEmail, password: regPassword }).toString(),
         })
-        .then(() => {
-            alert('Usuario registrado exitosamente.');
-            // Restablecer y mostrar el formulario de login
-            document.getElementById('registerForm').reset();
-            document.getElementById('registerForm').style.display = 'none';
-            document.getElementById('loginForm').style.display = 'block';
-        })
-        .catch(error => {
-            console.error('Error al registrar usuario:', error);
-            alert('Hubo un error al registrar el usuario. Inténtalo nuevamente.');
-        });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al contactar con el servidor.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Usuario registrado exitosamente.');
+                    document.getElementById('registerForm').reset();
+                    document.getElementById('registerForm').style.display = 'none';
+                    document.getElementById('loginForm').style.display = 'block';
+                } else {
+                    alert(data.message || 'Error al registrar usuario.');
+                }
+            })
+            .catch(error => {
+                console.error('Error al procesar el registro:', error);
+                alert('Hubo un problema al intentar registrar al usuario. Inténtalo más tarde.');
+            });
+    });
 });
