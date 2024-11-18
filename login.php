@@ -1,6 +1,6 @@
 <?php
 // Configuración de la base de datos
-$servername = "sql108.infinityfree.com";
+$servername = "sql108.infinityfree.com:3306";
 $username = "if0_37726901"; // Cambiar por tu usuario de la base de datos
 $password = "Tecnologias321"; // Cambiar por tu contraseña de la base de datos
 $dbname = "if0_37726901_fitnessplus"; // Cambiar por el nombre de tu base de datos
