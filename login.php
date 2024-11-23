@@ -1,11 +1,16 @@
-
 <?php
+
+// Configuración de encabezados para permitir CORS
+header('Access-Control-Allow-Origin: http://fitnessplus.free.nf'); // Cambiar a tu dominio si es necesario
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+
 // Configuración de la base de datos
-$servername = "sql108.infinityfree.com";
-$username = "if0_37726901"; // Cambiar por tu usuario de la base de datos
-$password = "Tecnologias321"; // Cambiar por tu contraseña de la base de datos
-$dbname = "if0_37726901_fitnessplus"; // Cambiar por el nombre de tu base de datos
-$port = 3306; // Puerto de la base de datos
+$servername = "sql313.infinityfree.com";
+$username = "if0_37732549";
+$password = "Tecno321";
+$dbname = "if0_37732549_fitnessplus";
+$port = 3306;
 
 // Conectar a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
@@ -26,7 +31,7 @@ if (!$username || !$password) {
     exit;
 }
 
-// Consulta para verificar usuario
+// Consulta para verificar el usuario
 $sql = "SELECT * FROM usuarios WHERE username = ?";
 $stmt = $conn->prepare($sql);
 
@@ -42,10 +47,21 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
 
-    // Verificar contraseña
-    if (password_verify($password, $user['password'])) {
-        $redirect = ($user['username'] === 'ADMIN') ? 'pantallaprincipalADMIN.html' : 'pantallaprincipal.html';
-        echo json_encode(['status' => 'success', 'redirect' => $redirect]);
+    // Comparar contraseña sin encriptación
+    if ($password === $user['password']) {
+        $redirect = ($user['username'] === 'admin') ? 'pantallaprincipalADMIN.html' : 'pantallaprincipal.html';
+
+        // Generar una respuesta exitosa con información adicional
+        echo json_encode([
+            'status' => 'success',
+            'redirect' => $redirect,
+            'user' => [
+                'id' => $user['id'],
+                'username' => $user['username'],
+                'points' => $user['points'],
+                'email' => $user['email'],
+            ],
+        ]);
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Contraseña incorrecta.']);
     }
@@ -55,4 +71,5 @@ if ($result->num_rows > 0) {
 
 $stmt->close();
 $conn->close();
+
 ?>

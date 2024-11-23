@@ -1,9 +1,15 @@
 <?php
+
+header('Access-Control-Allow-Origin: http://fitnessplus.free.nf');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+
 // Conexión a la base de datos
-$servername = "sql108.infinityfree.com"; // Cambiar por el servidor de la base de datos
-$username = "if0_37726901"; // Usuario de la base de datos
-$password = "Tecnologias321 "; // Contraseña de la base de datos
-$dbname = "if0_37726901_fitnessplus"; // Nombre de la base de datos
+$servername = "sql313.infinityfree.com";
+$username = "if0_37732549"; // Cambiar por tu usuario de la base de datos
+$password = "Tecno321"; // Cambiar por tu contraseña de la base de datos
+$dbname = "if0_37732549_fitnessplus"; // Cambiar por el nombre de tu base de datos
+$port = 3306; // Puerto de la base de datos
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

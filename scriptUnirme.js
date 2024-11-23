@@ -14,15 +14,15 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch('login.php', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded', // Usar este formato para PHP
+                'Content-Type': 'application/json',
             },
-            body: new URLSearchParams({ username, password }).toString(),
+            body: JSON.stringify({ username, password }),
         })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error al contactar con el servidor.');
                 }
-                return response.json();
+                return response.json(); // Convertir respuesta a JSON
             })
             .then(data => {
                 if (data.status === 'success') {
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Error al procesar el inicio de sesión:', error);
                 alert('Hubo un problema al intentar iniciar sesión. Inténtalo más tarde.');
             });
+        
     });
 
     // Alternar entre formularios de login y registro
@@ -72,7 +73,11 @@ document.addEventListener('DOMContentLoaded', function () {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded', // Usar este formato para PHP
             },
-            body: new URLSearchParams({ username: regUsername, email: regEmail, password: regPassword }).toString(),
+            body: JSON.stringify({
+                username: regUsername,
+                email: regEmail,
+                password: regPassword
+            }),
         })
             .then(response => {
                 if (!response.ok) {
