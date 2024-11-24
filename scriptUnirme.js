@@ -2,15 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Manejo de inicio de sesión
     document.getElementById('loginForm').addEventListener('submit', function (event) {
         event.preventDefault();
-
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
-
-        if (!username || !password) {
-            alert('Por favor ingresa un nombre de usuario y contraseña.');
-            return;
-        }
-
+    
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+    
         fetch('login.php', {
             method: 'POST',
             headers: {
@@ -18,26 +13,23 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             body: JSON.stringify({ username, password }),
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error al contactar con el servidor.');
-                }
-                return response.json(); // Convertir respuesta a JSON
-            })
+            .then(response => response.json())
             .then(data => {
                 if (data.status === 'success') {
+                    // Guardar el username en sessionStorage
+                    sessionStorage.setItem('username', username);
+    
+                    // Redirigir a la página principal
                     window.location.href = data.redirect;
                 } else {
-                    alert(data.message || 'Error al iniciar sesión. Verifica tus credenciales.');
+                    alert(data.message || 'Usuario o contraseña incorrectos.');
                 }
             })
             .catch(error => {
-                console.error('Error al procesar el inicio de sesión:', error);
-                alert('Hubo un problema al intentar iniciar sesión. Inténtalo más tarde.');
+                console.error('Error en el inicio de sesión:', error);
             });
-        
     });
-
+    
     // Alternar entre formularios de login y registro
     document.getElementById('showRegisterForm').addEventListener('click', function () {
         document.getElementById('loginForm').style.display = 'none';

@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="stylespantallaprincipal.css">
 </head>
 
-
-
 <body>
     <header class="header">
         <div class="logo-container">
@@ -27,35 +25,15 @@
     </header>
     <div class="web">
         <div class="user-card">
-            <img class="user-img" src="public/images/fotoperfil.png" alt="User Image">
-            <div class="user-name">Laura Tavares</div>
-            <div class="user-points">1000 PUNTOS</div>
+            <img class="user-img" id="userImage" src="public/images/default-profile.png" alt="User Image">
+            <div class="user-name" id="userName">Cargando...</div>
+            <div class="user-points" id="userPoints">0 PUNTOS</div>
         </div>
 
         <section class="upcoming-reservations">
             <h2>PRÓXIMAS RESERVAS</h2>
-            <div class="reservation-list">
-                <div class="reservation-item">
-                    <div class="reservation-date">
-                        <h3>2 AGOSTO</h3>
-                        <p>12 am - 1 pm</p>
-                    </div>
-                    <img class="reservation-avatar" src="public/images/fotoperfil.png" alt="Avatar">
-                </div>
-                <div class="reservation-item">
-                    <div class="reservation-date">
-                        <h3>9 AGOSTO</h3>
-                        <p>10 am - 1 am</p>
-                    </div>
-                    <img class="reservation-avatar" src="public/images/fotoperfil.png" alt="Avatar">
-                </div>
-                <div class="reservation-item">
-                    <div class="reservation-date">
-                        <h3>10 AGOSTO</h3>
-                        <p>11 am - 12 am</p>
-                    </div>
-                    <img class="reservation-avatar" src="public/images/fotoperfil.png" alt="Avatar">
-                </div>
+            <div class="reservation-list" id="reservationList">
+                <p>Cargando reservas...</p>
             </div>
             <button id="openModalBtn" class="register-btn">Registrar entrenamiento</button>
             <!-- Modal para registrar entrenamiento -->
@@ -65,7 +43,7 @@
                     <div class="modal-inner">
                         <h2>Parte que entrenaste:</h2>
                         <div class="dropdown">
-                            <select>
+                            <select id="trainingPart">
                                 <option value="cardio">Cardio</option>
                                 <option value="tren-superior">Tren Superior</option>
                                 <option value="tren-inferior">Tren Inferior</option>
@@ -73,19 +51,15 @@
                         </div>
                         <h2>Duración del entrenamiento:</h2>
                         <div class="dropdown">
-                            <select>
-                                <option value="30min">30 min</option>
-                                <option value="60min">60 min</option>
-                                <option value="90min">90 min</option>
+                            <select id="trainingDuration">
+                                <option value="30">30 min</option>
+                                <option value="60">60 min</option>
+                                <option value="90">90 min</option>
                             </select>
                         </div>
                         <h2>Fecha del entrenamiento:</h2>
-                        <input type="date">
-                        <div class="verification-code">
-                            <label>Código de verificación</label>
-                            <input type="text" value="2701ENT" disabled>
-                        </div>
-                        <button class="submit-btn">Registrar</button>
+                        <input type="date" id="trainingDate">
+                        <button class="submit-btn" id="registerTrainingBtn">Registrar</button>
                     </div>
                 </div>
             </div>
@@ -93,24 +67,12 @@
 
         <section class="previous-workouts">
             <h2>ENTRENAMIENTOS ANTERIORES</h2>
-            <div class="workout-item">
-                <h3>30 JULIO</h3>
-                <p>CARDIO + TREN SUPERIOR 60 MINUTOS</p>
-                <span>20 PUNTOS</span>
-            </div>
-            <div class="workout-item">
-                <h3>25 JULIO</h3>
-                <p>CARDIO + TREN INFERIOR 60 MINUTOS</p>
-                <span>20 PUNTOS</span>
-            </div>
-            <div class="workout-item">
-                <h3>20 JULIO</h3>
-                <p>CARDIO 30 MINUTOS</p>
-                <span>10 PUNTOS</span>
+            <div id="workoutList">
+                <p>Cargando entrenamientos...</p>
             </div>
         </section>
     </div>
-    <script src="scriptRegistrarEntrenamiento.js"></script>
+    <script src="scriptPantallaPrincipal.js"></script>
 </body>
 
 </html>

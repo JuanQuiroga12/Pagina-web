@@ -12,8 +12,6 @@ $password = "Tecno321";
 $dbname = "if0_37732549_fitnessplus";
 $port = 3306;
 
-
-
 // Conectar a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
@@ -25,16 +23,14 @@ if ($conn->connect_error) {
 // Leer datos del cuerpo de la solicitud
 $data = json_decode(file_get_contents('php://input'), true);
 $username = $data['username'] ?? null;
-$password = $data['password'] ?? null;
 
-// Validar entrada
-if (!$username || !$password) {
-    echo json_encode(['status' => 'error', 'message' => 'Por favor, complete todos los campos.']);
+if (!$username) {
+    echo json_encode(['status' => 'error', 'message' => 'No se proporcionó el username.']);
     exit;
 }
 
-// Consulta para verificar el usuario
-$sql = "SELECT * FROM usuarios WHERE username = ?";
+// Consultar datos del usuario
+$sql = "SELECT id, username, email, points, products FROM usuarios WHERE username = ?";
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {
@@ -48,30 +44,20 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
-
-    // Comparar contraseña sin encriptación
-    if ($password === $user['password']) {
-        $redirect = ($user['username'] === 'admin') ? 'pantallaprincipalADMIN.html' : 'pantallaprincipal.html';
-
-        // Generar una respuesta exitosa con información adicional
-        echo json_encode([
-            'status' => 'success',
-            'redirect' => $redirect,
-            'user' => [
-                'id' => $user['id'],
-                'username' => $user['username'],
-                'points' => $user['points'],
-                'email' => $user['email'],
-            ],
-        ]);
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'Contraseña incorrecta.']);
-    }
+    echo json_encode([
+        'status' => 'success',
+        'user' => [
+            'id' => $user['id'],
+            'username' => $user['username'],
+            'email' => $user['email'],
+            'points' => $user['points'],
+            'products' => $user['products'], // Asegúrate de que este campo existe y es válido
+        ],
+    ]);
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Usuario no encontrado.']);
 }
 
 $stmt->close();
 $conn->close();
-
 ?>
