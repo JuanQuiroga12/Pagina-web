@@ -1,8 +1,8 @@
 <?php
 
 // Configuración de encabezados para permitir CORS
-header('Access-Control-Allow-Origin: http://fitnessplus.free.nf'); // Cambiar a tu dominio si es necesario
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Origin: http://fitnessplus.free.nf');
+header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
 // Configuración de la base de datos
@@ -20,17 +20,18 @@ if ($conn->connect_error) {
     die(json_encode(['status' => 'error', 'message' => 'Error de conexión: ' . $conn->connect_error]));
 }
 
-// Leer datos del cuerpo de la solicitud
+// Leer datos enviados desde el frontend
 $data = json_decode(file_get_contents('php://input'), true);
 $username = $data['username'] ?? null;
 
+// Validar la entrada
 if (!$username) {
-    echo json_encode(['status' => 'error', 'message' => 'No se proporcionó el username.']);
+    echo json_encode(['status' => 'error', 'message' => 'Usuario no especificado.']);
     exit;
 }
 
-// Consultar datos del usuario
-$sql = "SELECT id, username, email, points, products FROM usuarios WHERE username = ?";
+// Consultar información básica del usuario
+$sql = "SELECT id, username, email, points, productos FROM usuarios WHERE username = ?";
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {
@@ -44,15 +45,45 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
+
+    $userData = [
+        'id' => $user['id'],
+        'username' => $user['username'],
+        'email' => $user['email'],
+        'points' => (int)$user['points'], // Asegurar que los puntos sean un entero
+        'products' => json_decode($user['productos'], true), // Decodificar JSON de productos
+    ];
+
+    // Consultar reservas del usuario
+    $sqlReservations = "SELECT date, time, trainerImage FROM reservas WHERE user_id = ?";
+    $stmtReservations = $conn->prepare($sqlReservations);
+    $stmtReservations->bind_param("i", $user['id']);
+    $stmtReservations->execute();
+    $resultReservations = $stmtReservations->get_result();
+
+    $reservations = [];
+    while ($row = $resultReservations->fetch_assoc()) {
+        $reservations[] = $row;
+    }
+
+    // Consultar entrenamientos del usuario
+    $sqlWorkouts = "SELECT date, type, duration, points FROM entrenamientos WHERE user_id = ?";
+    $stmtWorkouts = $conn->prepare($sqlWorkouts);
+    $stmtWorkouts->bind_param("i", $user['id']);
+    $stmtWorkouts->execute();
+    $resultWorkouts = $stmtWorkouts->get_result();
+
+    $workouts = [];
+    while ($row = $resultWorkouts->fetch_assoc()) {
+        $workouts[] = $row;
+    }
+
     echo json_encode([
         'status' => 'success',
-        'user' => [
-            'id' => $user['id'],
-            'username' => $user['username'],
-            'email' => $user['email'],
-            'points' => $user['points'],
-            'products' => $user['products'], // Asegúrate de que este campo existe y es válido
-        ],
+        'user' => array_merge($userData, [
+            'reservations' => $reservations,
+            'workouts' => $workouts,
+        ]),
     ]);
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Usuario no encontrado.']);
