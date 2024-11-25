@@ -1,126 +1,65 @@
+<!-- canjearpuntos.html -->
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canje de Puntos</title>
+    <title>Canje de Puntos - FitnessPlus</title>
     <link rel="stylesheet" href="stylecanjearpuntos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <header class="header">
         <div class="logo-container">
-            <img src="public/images/logo.png" alt="Logo">
+            <img src="public/images/logo.png" alt="Logo FitnessPlus">
         </div>
         <nav class="menu">
             <ul>
                 <li><a href="pantallaprincipal.html">INICIO</a></li>
                 <li><a href="entrenamientos.html">REGISTRAR ENTRENAMIENTO</a></li>
                 <li><a href="reservas.html">RESERVAR ENTRENAMIENTO</a></li>
-                <li><a href="#">CANJE DE PUNTOS</a></li>
+                <li><a href="#" class="active">CANJE DE PUNTOS</a></li>
                 <li><a href="perfil.html">PERFIL</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main role="main">
         <section class="points-section">
             <div class="points-circle">
-                <span id="totalPoints">1000</span>  <!-- Este valor se actualizará dinámicamente -->
+                <span id="totalPoints">0</span>
                 <p>Tus Puntos</p>
             </div>
         </section>
 
+        <!-- La sección de rewards se llenará dinámicamente desde JavaScript -->
         <section class="rewards-section">
-            <div class="reward" data-points="800">
-                <img src="public/images/mancuerdas.png" alt="Mancuerdas">
-                <div class="product-info">
-                    <p>800 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
-            <div class="reward" data-points="750">
-                <img src="public/images/tapete.png" alt="Tapete">
-                <div class="product-info">
-                    <p>750 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
-            <div class="reward" data-points="700">
-                <img src="public/images/pesas.png" alt="Pesas">
-                <div class="product-info">
-                    <p>700 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
-            <div class="reward" data-points="500">
-                <img src="public/images/bandas.png" alt="Bandas de ejercicio">
-                <div class="product-info">
-                    <p>500 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
-            <div class="reward" data-points="650">
-                <img src="public/images/soga.png" alt="Soga">
-                <div class="product-info">
-                    <p>650 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
-            <div class="reward" data-points="700">
-                <img src="public/images/rodillo.png" alt="Rodillo">
-                <div class="product-info">
-                    <p>700 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
-            <div class="reward" data-points="500">
-                <img src="public/images/creatina.png" alt="Creatina">
-                <div class="product-info">
-                    <p>500 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
-            <div class="reward" data-points="500">
-                <img src="public/images/creatina2.png" alt="MuscleTech - Nitro Tech">
-                <div class="product-info">
-                    <p>500 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
-            <div class="reward" data-points="4000">
-                <img src="public/images/termo.png" alt="Termo Stanley">
-                <div class="product-info">
-                    <p>4000 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
-            <div class="reward" data-points="400">
-                <img src="public/images/lonchera.png" alt="Lonchera">
-                <div class="product-info">
-                    <p>400 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
-            <div class="reward" data-points="550">
-                <img src="public/images/pantaloneta.png" alt="Pantaloneta">
-                <div class="product-info">
-                    <p>550 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
-            <div class="reward" data-points="750">
-                <img src="public/images/camisa.png" alt="Camisa de entrenamiento">
-                <div class="product-info">
-                    <p>750 Puntos</p>
-                    <button class="btn-canjear">Canjear</button>
-                </div>
-            </div>
+            <!-- El contenido se generará dinámicamente -->
         </section>
     </main>
 
+    <!-- Modal de Confirmación -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirmar Canje</h2>
+            <p>¿Estás seguro que deseas canjear este producto?</p>
+            <div class="modal-buttons">
+                <button class="btn-confirm">Confirmar</button>
+                <button class="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Éxito -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>¡Canje Exitoso!</h2>
+            <p>Tu producto ha sido canjeado exitosamente.</p>
+            <p>Puntos restantes: <span id="remainingPoints">0</span></p>
+            <button class="btn-accept">Aceptar</button>
+        </div>
+    </div>
+
     <script src="scriptCanjePuntos.js"></script>
 </body>
-
 </html>
