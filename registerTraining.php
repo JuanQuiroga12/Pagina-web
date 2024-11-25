@@ -1,70 +1,139 @@
 <?php
-// Configuración de encabezados para permitir CORS
-header('Access-Control-Allow-Origin: http://fitnessplus.free.nf'); // Cambiar a tu dominio si es necesario
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+// Configuración inicial
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: http://fitnessplus.free.nf');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
-// Configuración de la base de datos
-$servername = "sql313.infinityfree.com";
-$username = "if0_37732549";
-$password = "Tecno321";
-$dbname = "if0_37732549_fitnessplus";
-$port = 3306;
-
-$conn = new mysqli($servername, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die(json_encode([
-        'status' => 'error',
-        'message' => 'Error al conectar con la base de datos: ' . $conn->connect_error,
-    ]));
+// Si es una solicitud OPTIONS, terminar aquí
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    exit(0);
 }
 
-// Leer el cuerpo de la solicitud
-$requestPayload = file_get_contents('php://input');
-$data = json_decode($requestPayload, true);
-
-// Validar datos recibidos
-if (!isset($data['userId'], $data['type'], $data['duration'], $data['date'], $data['points'])) {
+// Verificar método HTTP
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
     echo json_encode([
         'status' => 'error',
-        'message' => 'Datos incompletos para registrar el entrenamiento.',
+        'message' => 'Método no permitido'
     ]);
     exit;
 }
 
-$userId = $conn->real_escape_string($data['userId']);
-$type = $conn->real_escape_string($data['type']);
-$duration = $conn->real_escape_string($data['duration']);
-$date = $conn->real_escape_string($data['date']);
-$points = (int)$data['points'];
+try {
+    // Configuración de la base de datos
+    $servername = "sql313.infinityfree.com";
+    $username = "if0_37732549";
+    $password = "Tecno321";
+    $dbname = "if0_37732549_fitnessplus";
+    $port = 3306;
 
-// Insertar el entrenamiento en la base de datos
-$insertWorkoutQuery = "
-    INSERT INTO workouts (user_id, date, type, duration, points)
-    VALUES ('$userId', '$date', '$type', '$duration', $points)
-";
+    // Crear conexión
+    $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
-if ($conn->query($insertWorkoutQuery) === TRUE) {
-    // Actualizar los puntos del usuario
-    $updatePointsQuery = "UPDATE users SET points = points + $points WHERE id = '$userId'";
-    if ($conn->query($updatePointsQuery) === TRUE) {
-        echo json_encode([
-            'status' => 'success',
-            'message' => 'Entrenamiento registrado exitosamente.',
-        ]);
-    } else {
-        echo json_encode([
-            'status' => 'error',
-            'message' => 'Entrenamiento registrado, pero no se pudo actualizar los puntos del usuario.',
-        ]);
+    // Verificar conexión
+    if ($conn->connect_error) {
+        throw new Exception("Connection failed: " . $conn->connect_error);
     }
-} else {
+
+    // Leer y decodificar el cuerpo de la solicitud
+    $requestPayload = file_get_contents('php://input');
+    $data = json_decode($requestPayload, true);
+
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        throw new Exception('Error al decodificar JSON: ' . json_last_error_msg());
+    }
+
+    // Debug: Imprimir datos recibidos
+    error_log("Datos recibidos: " . print_r($data, true));
+
+    // Validar datos requeridos
+    $requiredFields = ['username', 'tipoentrenamiento', 'TIME', 'DATE'];
+    $missingFields = [];
+    
+    foreach ($requiredFields as $field) {
+        if (!isset($data[$field]) || empty($data[$field])) {
+            $missingFields[] = $field;
+        }
+    }
+    
+    if (!empty($missingFields)) {
+        throw new Exception("Campos requeridos faltantes: " . implode(', ', $missingFields));
+    }
+
+    // Calcular puntos basado en la duración del entrenamiento
+    $duration = intval($data['TIME']);
+    $points = floor($duration / 30) * 50; // 50 puntos por cada 30 minutos
+
+    // Obtener el ID del usuario
+    $stmt = $conn->prepare("SELECT id FROM usuarios WHERE username = ?");
+    $stmt->bind_param("s", $data['username']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 0) {
+        throw new Exception('Usuario no encontrado');
+    }
+
+    $user = $result->fetch_assoc();
+    $userId = $user['id'];
+
+    // Insertar el entrenamiento
+    $stmt = $conn->prepare("INSERT INTO entrenamientos (user_id, DATE, tipoentrenamiento, TIME) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("isss", $userId, $data['DATE'], $data['tipoentrenamiento'], $data['TIME']);
+
+    if (!$stmt->execute()) {
+        throw new Exception('Error al insertar el entrenamiento: ' . $stmt->error);
+    }
+
+    // Actualizar puntos del usuario
+    $stmt = $conn->prepare("UPDATE usuarios SET puntos = puntos + ? WHERE id = ?");
+    $stmt->bind_param("ii", $points, $userId);
+
+    if (!$stmt->execute()) {
+        throw new Exception('Error al actualizar los puntos: ' . $stmt->error);
+    }
+
+    // Obtener los puntos actualizados del usuario
+    $stmt = $conn->prepare("SELECT puntos FROM usuarios WHERE id = ?");
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $newPoints = $result->fetch_assoc()['puntos'];
+
+    // Obtener entrenamientos actualizados
+    $stmt = $conn->prepare("SELECT DATE, tipoentrenamiento, TIME FROM entrenamientos WHERE user_id = ? ORDER BY DATE DESC LIMIT 10");
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $workouts = [];
+    while ($row = $result->fetch_assoc()) {
+        $workouts[] = $row;
+    }
+
+    // Devolver respuesta exitosa
+    echo json_encode([
+        'status' => 'success',
+        'message' => 'Entrenamiento registrado exitosamente',
+        'newPoints' => $newPoints,
+        'updatedWorkouts' => $workouts
+    ]);
+
+} catch (Exception $e) {
+    error_log("Error en registerTraining.php: " . $e->getMessage());
+    http_response_code(500);
     echo json_encode([
         'status' => 'error',
-        'message' => 'Error al registrar el entrenamiento: ' . $conn->error,
+        'message' => $e->getMessage()
     ]);
+} finally {
+    if (isset($stmt)) {
+        $stmt->close();
+    }
+    if (isset($conn)) {
+        $conn->close();
+    }
 }
-
-$conn->close();
 ?>

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data.status === 'success') {
                     // Guardar el username en sessionStorage
-                    sessionStorage.setItem('username', username);
+                    sessionStorage.setItem('username', data.user.username);
     
                     // Redirigir a la página principal
                     window.location.href = data.redirect;

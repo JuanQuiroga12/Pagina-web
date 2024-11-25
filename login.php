@@ -1,5 +1,4 @@
 <?php
-
 // Configuración de encabezados para permitir CORS
 header('Access-Control-Allow-Origin: http://fitnessplus.free.nf'); // Cambiar a tu dominio si es necesario
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
@@ -60,7 +59,7 @@ if ($result->num_rows > 0) {
             'user' => [
                 'id' => $user['id'],
                 'username' => $user['username'],
-                'points' => $user['points'],
+                'puntos' => $user['puntos'],
                 'email' => $user['email'],
             ],
         ]);
@@ -73,5 +72,4 @@ if ($result->num_rows > 0) {
 
 $stmt->close();
 $conn->close();
-
 ?>
